@@ -7,6 +7,24 @@
 </head>
  
 <body>
+	.ui{
+	height:30px;/*整体导航栏的高度，没有设置长度默认横跨这个网页*/
+	list-style: none;
+    background: #96b97d;/*导航栏颜色*/
+}
+.ui li{
+    float: left;/*浮动左对齐*/
+}
+
+.ui li a{
+    height:30px;/*高度和父类一致*/
+    padding:0 10px;/*调整元素之间的纵向间距*/
+    font-size: 12px;/*字体大小*/
+    line-height:30px;/*元素水平高度*/
+	text-decoration:none;/*去掉下划线*/
+	color:#ffffff;/*设置文字颜色为白色*/
+}
+
 <!-- 导航栏 -->
 <ul class="ui">
 	<li><a href="//www.runoob.com/">首页</a></li>
