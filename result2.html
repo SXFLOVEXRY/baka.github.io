@@ -1,23 +1,43 @@
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" 
-  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <title>逐个显示加载文字的示例</title>
 </head>
 <body>
-<p>text</p>
-<iframe scr="https://sxflovexry.github.io/baka.github.io/" width="2000" height="2000"></iframe>
-<a href="https://sxflovexry.github.io/baka.github.io/">重新</a>
-<button type="button" onclick="myFunction()">点击我！</button>
-
-<p id="demo">这是一个演示。</p>
-
-<script>
-function myFunction() { 
-  document.getElementById("demo").innerHTML = "Hello JavaScript!";
-}
-</script>
-
+  <div id="textElement">
+      loading...
+  </div>
+  <button onclick="showTextClick()">加载文字</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>       
+        /**
+         * 逐个显示加载函数
+         * @param {string} elementId 加载内容的元素id
+         * @param {string} textToLoad 加载的内容            
+         * @param {number} speed 加载速度,单位：毫秒,
+         */
+        function showText(elementId,textToLoad,speed) {                              
+            var textElement = document.getElementById(elementId);
+            let index = 0; 
+            if(speed == undefined || speed == null || speed == ""){
+                speed = 10;
+            }
+            // 设置定时器，每隔一定时间逐个添加文字
+            var timerId = setInterval(() => {
+                textElement.textContent += textToLoad[index]; // 逐个添加文字
+                index++; // 更新索引
+                // 判断是否已显示完所有文字
+                if (index >= textToLoad.length) {
+                    clearInterval(timerId); // 停止定时器
+                }
+            }, speed); // 控制每个字符的加载间隔，可以根据需要调整
+        }
+        var  textToLoad = "运营经理职业需要具备的从业知识：  1. 运营管理知识：了解运营管理的基本概念、流程、工具和方法，包括生产、销售、财务、人力资源等方面的运营管理。 2. 数据分析能力：具备数据分析的能力，能够通过数据分析和挖掘，发现问题并提出解决方案。 3. 项目管理能力：能够有效地管理项目进度、人员调配、资源分配等方面的工作，确保项目的顺利进行。 4. 沟通能力：具备良好的沟通能力，能够与团队成员、客户、供应商等各方进行有效沟通。 5. 行业知识：了解所在行业的市场、竞争、技术等方面的知识，以便更好地进行运营管理。  职业所需技能：  1. 领导力：具备领导力技能，能够带领团队完成目标，激发团队成员的积极性和创造力。 2. 决策能力：具备决策能力，能够在复杂多变的环境中做出正确的决策。 3. 创新能力：能够根据市场和客户需求，提出新的运营思路和方法，提高运营效率和质量。 4. 团队合作能力：能够与团队成员密切合作，共同完成目标。  从业难度或工作挑战：  1. 工作压力大：运营经理需要面对较大的工作压力，包括时间紧迫、任务繁重、质量要求高等方面。 2. 竞争激烈：随着市场竞争的加剧，运营经理需要不断更新知识和技能，以应对不断变化的市场环境。 3. 跨部门沟通：需要与不同部门进行有效的沟通和协作，协调资源，确保运营目标的实现。                                                                                              以上书籍仅供参考，具体可根据个人需求和兴趣进行选择。                   　                              综上以上回答了你的问题，希望能对你有所帮助。　   　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　．．．．．．．．． -----------------------------------------------------------";
+        function showTextClick(){
+            $('#textElement').text("");   
+            showText("textElement",textToLoad,10);
+        }               
+    </script>     
 </body>
 </html>
