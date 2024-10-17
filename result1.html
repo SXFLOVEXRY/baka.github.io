@@ -1,97 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>文字游戏</title>
-    <style>
-        #wenzi{
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 300px;
-            height: 300px;
-            word-break:break-all;
-        }
-        #rongqi{
-            position:relative;
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>opooc</title>
 
-            width: 320px;
-            height: 320px;
-
-        }
-        #anniu{
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-        img{
-            width: 320px;
-            height: 320px;
-        }
-    </style>
-    <script>
-        window.function(){
-            function  $(id){
-                return  document.getElementById(id);
-            }
-            //这里是放剧情的
-            var  juqing = ['111111111111111111111111111111111',
-                '22222222222222222222222222222222222',
-                '33333333333333333333333333333333333'];
-            //这里是放图片地址的  对应上面的剧情数量
-            var  tupian = ['111.jpg','222.jpg','333.jpg'];
-            //这个切换内容的下标
-            var index = 0;
-            //这个是打印速度
-            var  ste = 100;
-            $("anniu").onclick = function(){
-                j = 1;
-                var _this = this;
-                _this.style.display='none';
-
-                if(index<juqing.length){
-                    var j=1;
-                    $("tupian").src = tupian[index];
-                    // 启动打字机
-                    siT();
-                    function siT(){
-                        setTimeout(function(){
-                            j++;
-                            console.log(j);
-                            if(j>=juqing[index].length){
-                                index++;
-                                _this.style.display='block';
-
-                                return;
-                            }
-                            siT();
-                        },ste);
-                        $("wenzi").innerHTML = juqing[index].substring(0,j);
-
-
-
-                         };
-
-
-                }else{
-                    document.write("游戏结束，请刷新页面")
-                }
-
-            };
-
-        }
-
-
-
-
-    </script>
 </head>
+<style >
+div{
+    width: 800px;
+    height: 30px;
+    border:1px
+    solid #ef3333;
+    color: greenyellow;
+}
+</style>
 <body>
-   <div id="rongqi">
-       <img id="tupian" src="" >
-       <div id="wenzi">故事从这里开始111111111111111111111111111111111111111111111111111111 </div>
-       <button id="anniu">下一步</button>
-   </div>
+<div id = "test"></div>
+<script >
+    var text = "我有一个梦想我有一个梦想我有一个梦想我有一个梦想";
+    var num = text.length;
 
+    var i =0;
+    function show() {
+        var shower = text.substr(0,i);
+        document.getElementById("test").innerHTML = shower;
+        i++;
+        if(i + 1 >= num){
+            clearInterval("done");
+        }
+    }
+    var done=setInterval("show()",500);
+
+
+</script>
 </body>
+
+</html>
 </html>
