@@ -131,17 +131,23 @@
  
         case 4:
           document.getElementById("story").innerHTML = "你与熊展开激烈的战斗，但你不敌它的力量。你失败了！";
-          document.querySelector(".button-container").innerHTML = "";
+          document.querySelector(".button-container").innerHTML = `
+          <button onclick="restartGame()">cxks</button>
+          `;
           break;
  
         case 5:
           document.getElementById("story").innerHTML = "你进入了神庙，但被触发了陷阱。你被困在里面，游戏结束！";
-          document.querySelector(".button-container").innerHTML = "";
+          document.querySelector(".button-container").innerHTML = `
+          <button onclick="restartGame()">cxks</button>
+          `;
           break;
  
         case 6:
           document.getElementById("story").innerHTML = "你继续寻找，最终找到了回家的路。你赢得了游戏！";
-          document.querySelector(".button-container").innerHTML = "";
+          document.querySelector(".button-container").innerHTML = `
+          <button onclick="restartGame()">cxks</button>
+          `;
           break;
  
         case 7:
@@ -154,12 +160,16 @@
  
         case 8:
           document.getElementById("story").innerHTML = "你继续寻找，最终找到了回家的路。你赢得了游戏！";
-          document.querySelector(".button-container").innerHTML = "";
+          document.querySelector(".button-container").innerHTML = `
+          <button onclick="restartGame()">cxks</button>
+          `;
           break;
  
         case 9:
           document.getElementById("story").innerHTML = "你进入了地下迷宫，面临着无数的选择和危险。这是另一个故事了...";
-          document.querySelector(".button-container").innerHTML = "";
+          document.querySelector(".button-container").innerHTML = `
+          <button onclick="restartGame()">cxks</button>
+          `;
           break;
  
         case 10:
@@ -173,6 +183,12 @@
         default:
           break;
       }
+    }
+    function restartGame(){
+     document.getElementById("story").innerHTML = "结束了，请重新开始";
+      document.querySelector(".button-container").innerHTML = `
+ 		<button onclick="startGame()">开始</button>
+      `;
     }
   </script>
 </body>
